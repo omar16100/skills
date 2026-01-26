@@ -6,7 +6,7 @@ Custom skills for [Claude Code](https://claude.ai/claude-code) CLI.
 
 ```bash
 # Clone the repo
-git clone https://github.com/omarshab/skills-of-omar.git ~/skills-of-omar
+git clone https://github.com/omar16100/skills-of-omar.git ~/skills-of-omar
 
 # Create skills symlink directory
 mkdir -p ~/.claude/skills
