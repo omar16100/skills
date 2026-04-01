@@ -5,14 +5,14 @@ Custom skills for [Claude Code](https://claude.ai/claude-code) CLI.
 ## Installation
 
 ```bash
-# Clone the repo
+# Install all skills via npx
+npx skills add omar16100/skills-of-omar
+
+# Or install manually via symlinks
 git clone https://github.com/omar16100/skills-of-omar.git ~/skills-of-omar
-
-# Create skills symlink directory
 mkdir -p ~/.claude/skills
-
-# Symlink individual skills
 ln -s ~/skills-of-omar/batik-checkin ~/.claude/skills/batik-checkin
+ln -s ~/skills-of-omar/npm-supply-chain-audit ~/.claude/skills/npm-supply-chain-audit
 ```
 
 ## Available Skills
@@ -39,6 +39,29 @@ Automates Batik Air Malaysia web check-in via BookCabin portal using Playwright 
 5. Handles seat selection dialogs
 6. Accepts dangerous goods declaration
 7. Downloads boarding pass
+
+### npm-supply-chain-audit
+
+Audits npm projects for malicious packages, supply chain attacks, typosquatting, and indicators of compromise (IOCs).
+
+**Usage:**
+```
+/npm-supply-chain-audit axios@1.14.1         # Research specific package/version
+/npm-supply-chain-audit plain-crypto-js      # Check a suspicious package
+/npm-supply-chain-audit ~/my-project         # Audit a project's dependencies
+/npm-supply-chain-audit                      # Audit current directory
+```
+
+**What it does:**
+1. Researches package/version against security advisories (Snyk, Socket.dev, npm)
+2. Scans lock files and node_modules for known malicious packages
+3. Checks filesystem for RAT artifacts and C2 domains
+4. Runs `npm audit` and flags suspicious postinstall scripts
+5. Reports IOCs and provides remediation steps if compromised
+
+Includes a living threat database (`known-threats.md`) with confirmed attacks (e.g., Axios/WAVESHAPER.V2 supply chain attack, March 2026).
+
+---
 
 ## Adding New Skills
 
