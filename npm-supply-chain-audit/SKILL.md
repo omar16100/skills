@@ -28,7 +28,7 @@ Report findings in a structured table format.
 
 ## Phase 2: Local Dependency Scan
 
-Search the target project (or all projects under home directory if no path given) for:
+Search the target project (the current working directory if no path given) for:
 
 ### 2a. Lock File & Manifest Search
 - Search all `package.json` files for the target package in dependencies, devDependencies, optionalDependencies, peerDependencies

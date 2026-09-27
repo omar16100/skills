@@ -22,7 +22,7 @@ Every claim below links to the public report it comes from. Keep it that way whe
 | `@shadanai/openclaw` | `2026.3.28-2`, `2026.3.28-3`, `2026.3.31-1`, `2026.3.31-2` | 2026-03-31 | In Socket's malicious package IOC list; Socket found the same dropper vendored in `2026.3.31-1` and `2026.3.31-2` ([Socket][socket]) |
 | `@qqbrowser/openclaw-qbot` | `0.0.130` | 2026-03-31 | Ships a tampered `axios@1.14.1` with `plain-crypto-js` injected ([Socket][socket]) |
 
-Publish times come from the npm registry `time` field (queried 2026-09-27) and match the StepSecurity timeline. Socket assesses that the two openclaw packages were likely built while `axios@1.14.1` was the latest version and picked up the malicious dependency transitively ([Socket][socket]).
+Publish times come from the npm registry `time` field, queried 2026-09-27 ([axios][npm-axios], [plain-crypto-js][npm-plaincrypto], [@shadanai/openclaw][npm-shadanai], [@qqbrowser/openclaw-qbot][npm-qqbrowser]); the axios and plain-crypto-js times also match the StepSecurity timeline ([StepSecurity][stepsecurity]). Socket assesses that the two openclaw packages were likely built while `axios@1.14.1` was the latest version and picked up the malicious dependency transitively ([Socket][socket]).
 
 ### Downgrade Targets
 
@@ -69,6 +69,7 @@ Last releases before the compromise, named in the axios post-mortem and by GTIG 
 - [Snyk: SNYK-JS-AXIOS-15850650][snyk-axios]
 - [Snyk: SNYK-JS-PLAINCRYPTOJS-15850652][snyk-plaincrypto]
 - [axios/axios#10604: axios@1.14.1 and axios@0.30.4 are compromised][issue-10604]
+- npm registry metadata: [axios][npm-axios], [plain-crypto-js][npm-plaincrypto], [@shadanai/openclaw][npm-shadanai], [@qqbrowser/openclaw-qbot][npm-qqbrowser]
 
 ---
 
@@ -104,3 +105,7 @@ When a new supply chain attack is discovered, add an entry with:
 [snyk-plaincrypto]: https://security.snyk.io/vuln/SNYK-JS-PLAINCRYPTOJS-15850652
 [issue-10604]: https://github.com/axios/axios/issues/10604
 [socket-typosquats]: https://socket.dev/blog/5-malicious-npm-packages-typosquat-solana-and-ethereum-libraries-steal-private-keys
+[npm-axios]: https://registry.npmjs.org/axios
+[npm-plaincrypto]: https://registry.npmjs.org/plain-crypto-js
+[npm-shadanai]: https://registry.npmjs.org/@shadanai%2fopenclaw
+[npm-qqbrowser]: https://registry.npmjs.org/@qqbrowser%2fopenclaw-qbot
