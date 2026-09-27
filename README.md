@@ -11,11 +11,36 @@ npx skills add omar16100/skills-of-omar
 # Or install manually via symlinks
 git clone https://github.com/omar16100/skills-of-omar.git ~/skills-of-omar
 mkdir -p ~/.claude/skills
+ln -s ~/skills-of-omar/setup-google-analytics ~/.claude/skills/setup-google-analytics
 ln -s ~/skills-of-omar/batik-checkin ~/.claude/skills/batik-checkin
 ln -s ~/skills-of-omar/npm-supply-chain-audit ~/.claude/skills/npm-supply-chain-audit
 ```
 
 ## Available Skills
+
+### setup-google-analytics
+
+Sets up Google Analytics 4 for any website using Playwright browser automation.
+
+**Usage:**
+```
+/setup-google-analytics example.com
+```
+
+**Requirements:**
+- Playwright MCP server running
+- Google account logged in (via Playwright browser)
+- Website codebase accessible
+
+**What it does:**
+1. Navigates to Google Analytics
+2. Creates new GA4 property
+3. Sets up web data stream
+4. Extracts measurement ID (G-XXXXXXXXXX)
+5. Adds tracking code to website HTML
+6. Optionally adds event tracking to JS
+
+---
 
 ### batik-checkin
 
