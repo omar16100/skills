@@ -38,14 +38,16 @@ Search the target project (or all projects under home directory if no path given
 ### 2b. Known Malicious Package Database
 Always check for these **confirmed malicious packages** in addition to any user-specified targets:
 
-**Axios Supply Chain Attack (March 31, 2026):**
-- `axios@1.14.1` — compromised via hijacked maintainer account
-- `axios@0.30.4` — compromised via hijacked maintainer account
-- `plain-crypto-js@4.2.0` — clean decoy version, still suspicious
-- `plain-crypto-js@4.2.1` — RAT dropper (WAVESHAPER.V2)
-- `@shadanai/openclaw@2026.3.31-1` — related malicious package
-- `@shadanai/openclaw@2026.3.31-2` — related malicious package
-- `@qqbrowser/openclaw-qbot@0.0.130` — related malicious package
+**Axios Supply Chain Attack (March 31, 2026)** (sources for every item are in `known-threats.md`):
+- `axios@1.14.1`: compromised via hijacked maintainer account
+- `axios@0.30.4`: compromised via hijacked maintainer account
+- `plain-crypto-js@4.2.0`: clean decoy version, still suspicious
+- `plain-crypto-js@4.2.1`: dropper for the WAVESHAPER.V2 RAT
+- `@shadanai/openclaw@2026.3.28-2`: related malicious package
+- `@shadanai/openclaw@2026.3.28-3`: related malicious package
+- `@shadanai/openclaw@2026.3.31-1`: related malicious package
+- `@shadanai/openclaw@2026.3.31-2`: related malicious package
+- `@qqbrowser/openclaw-qbot@0.0.130`: related malicious package
 
 **Common typosquatting targets:**
 - Variations of `crypto-js` (e.g., `plain-crypto-js`, `crypto-jss`, `crypt-js`)
@@ -62,16 +64,16 @@ Always check for these **confirmed malicious packages** in addition to any user-
 Check for known RAT artifacts on the local machine:
 
 ### macOS
-- `/Library/Caches/com.apple.act.mond` — WAVESHAPER.V2 persistence
+- `/Library/Caches/com.apple.act.mond`: WAVESHAPER.V2 macOS payload
 - Check for suspicious LaunchAgents/LaunchDaemons
 
 ### Linux
-- `/tmp/ld.py` — WAVESHAPER.V2 Python RAT
+- `/tmp/ld.py`: WAVESHAPER.V2 Python RAT
 
 ### Windows
-- `%PROGRAMDATA%\wt.exe` — disguised as Windows Terminal
-- `%TEMP%\6202033.vbs` — VBScript dropper
-- `%TEMP%\6202033.ps1` — PowerShell dropper
+- `%PROGRAMDATA%\wt.exe`: copy of PowerShell named like Windows Terminal
+- `%TEMP%\6202033.vbs`: VBScript dropper
+- `%TEMP%\6202033.ps1`: PowerShell payload
 
 ### Network IOCs
 Search project files for known C2 domains:
@@ -97,7 +99,7 @@ If a project path is identified:
 | Suspicious postinstall scripts | CLEAN/FOUND | list if found |
 | npm audit vulnerabilities | X critical, Y high | counts |
 
-### If Compromised — Remediation Steps
+### If Compromised: Remediation Steps
 1. Remove malicious packages from `node_modules/` and lock files
 2. Downgrade to last known safe version
 3. Check for filesystem artifacts
